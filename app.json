@@ -1,9 +1,11 @@
+
 {
   "pages": [
     "pages/posts/index",
+    "pages/post/index",
+    "pages/videos/index",
     "pages/video/index",
     "pages/about/index",
-    "pages/post/index", 
     "pages/wallpaper/index"
   ],
   "window": {
@@ -27,7 +29,7 @@
         "text": "壁 纸"
       },
       {
-        "pagePath": "pages/video/index",
+        "pagePath": "pages/videos/index",
         "text": "视 频"
       },
       {
