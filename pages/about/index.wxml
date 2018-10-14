@@ -1,0 +1,25 @@
+<view class="about">
+  <view class="heading">关 于</view>
+  <view class="content"> 22</view>
+  <view class="heading">相关人员</view>
+  <view class="content">
+ 
+    <view class="br"></view>
+   
+    <view class="br"></view>
+    
+    <view class="br"></view>
+   
+  </view>
+  <view class="heading">再次关于</view>
+  <view class="content">
+    dadad
+  </view>
+  <view class="gift">
+    <image
+      bindtap="onTap"
+      mode="widthFix"
+      src="{{src}}"
+    />
+  </view>
+</view>

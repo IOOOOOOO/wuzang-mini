@@ -1,0 +1,37 @@
+<wxs module="helper">
+  var unescape = function(text) {
+    return text
+      .split('<p>')
+      .join('')
+      .split('</p>')
+      .join('')
+      .split('<br />')
+      .join('')
+      .split('&nbsp;')
+      .join('')
+      .split('[&hellip;]')
+      .join('')
+  }
+  module.exports.unescape = unescape
+</wxs>
+
+<scroll-view
+  scroll-y
+  enable-back-to-top
+  scroll-with-animation
+  bindscrolltolower="onScrollBottom"
+  scroll-top="{{scrollTop}}"
+>
+  <navigator
+    wx:for="{{posts}}"
+    wx:key="index"
+    class="post"
+    url="/pages/post/index?id={{item.id}}"
+  >
+    <view class="cover">
+      <image mode="widthFix" src="https://wuzang.iego.net/wp-content/themes/Diaspora-master/timthumb/timthumb.php?src={{item.thumbnail}}" />
+      <text class="title">{{item.title.rendered}}</text>
+    </view>
+    <view class="excerpt">{{helper.unescape(item.excerpt.rendered)}}</view>
+  </navigator>
+</scroll-view>

@@ -1,0 +1,69 @@
+video{ width: 100%; height: 200px;}
+@import "../../helper/html2wxml/html2wxml.wxss";
+
+.title {
+  color: #333;
+  font-size: 24px;
+  margin: 0 30px 20px;
+  text-align: center;
+  line-height: 1.5;
+  display: block;
+  padding-top: 30px;
+}
+.info {
+  color: #9b9b9b;
+  display: flex;
+  line-height: 1;
+  justify-content: center;
+  font-size: 13px;
+}
+.info view {
+  margin: 0 5px;
+}
+.cover  {
+  width: 100%;
+  display: block;
+  margin-top: 20px;
+}
+.content {
+  margin: 10px 20px 0;
+  padding-bottom: 50px;
+}
+scroll-view {
+  height: 100vh;
+  position: relative;
+}
+.post {
+  position: relative;
+}
+.button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 42px;
+  height: 42px;
+  padding: 1px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .3);
+}
+.button.ready {
+  background: rgba(0, 0, 0, .6);
+}
+.button.ready image {
+  opacity: 1;
+}
+.button image {
+  width: 40px;
+  height: 40px;
+  display: block;
+  opacity: .7;
+}
+.rate {
+  transition: all .1s linear;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  background: #666;
+}

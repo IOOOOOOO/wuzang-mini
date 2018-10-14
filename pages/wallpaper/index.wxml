@@ -1,0 +1,25 @@
+<scroll-view
+  scroll-y
+  scroll-with-animation
+  enable-back-to-top
+  bindscrolltolower="onScrollBottom"
+  scroll-top="{{scrollTop}}"
+>
+  <view class="main">
+    <view
+      wx:for="{{items}}"
+      wx:key="index"
+    >
+      <image
+        wx:for="{{item}}"
+        wx:key="i"
+        wx:for-index="i"
+        wx:for-item="image"
+        mode="widthFix"
+        src="{{image.media_details.sizes.thumbnail.source_url}}"
+        data-src="{{image.media_details.sizes.full.source_url}}"
+        bindtap="onTap"
+      />
+    </view>
+  </view>
+</scroll-view>
