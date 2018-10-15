@@ -1,9 +1,9 @@
+
 Page({
   data: {
-    src: '',
-  },
-
-  onTap() {
-    wx.previewImage({ current: '', urls: [this.data.src] })
+    navbar: {
+      back: true,
+      background:"transparent"
+    }
   },
 })

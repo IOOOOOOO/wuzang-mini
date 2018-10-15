@@ -1,25 +1,37 @@
-<scroll-view
+ <navigationBar opt="{{navbar}}" id="navigationBar" ></navigationBar>
+
+<view class='page'>
+  <view class='page__bd'>
+    <scroll-view
   scroll-y
   scroll-with-animation
   enable-back-to-top
   bindscrolltolower="onScrollBottom"
   scroll-top="{{scrollTop}}"
 >
-  <view class="main">
     <view
       wx:for="{{items}}"
-      wx:key="index"
+      wx:key="i"
+      wx:for-index="i"
+      wx:for-item="image"
+      class='item'
     >
       <image
-        wx:for="{{item}}"
-        wx:key="i"
-        wx:for-index="i"
-        wx:for-item="image"
         mode="widthFix"
-        src="{{image.media_details.sizes.thumbnail.source_url}}"
+        src="{{image.media_details.sizes.medium.source_url}}"
         data-src="{{image.media_details.sizes.full.source_url}}"
         bindtap="onTap"
       />
     </view>
-  </view>
+
 </scroll-view>
+  
+  </view>
+ <view class="page__ft">
+    <image src="/image/icon_footer.png" style="width: 84px; height: 19px;"></image>
+  </view>
+</view>
+
+
+
+

@@ -1,25 +1,15 @@
-<view class="about">
-  <view class="heading">关 于</view>
-  <view class="content"> 22</view>
-  <view class="heading">相关人员</view>
-  <view class="content">
- 
-    <view class="br"></view>
-   
-    <view class="br"></view>
-    
-    <view class="br"></view>
-   
+ <navigationBar opt="{{navbar}}" id="navigationBar" ></navigationBar>
+
+<view class='page'>
+  <view class='page__hd'>
+    <image src='/image/logo.jpg' mode="" class='logo'></image>
+    <view class='title'>吾藏 WUZANG</view>
   </view>
-  <view class="heading">再次关于</view>
-  <view class="content">
-    dadad
-  </view>
-  <view class="gift">
-    <image
-      bindtap="onTap"
-      mode="widthFix"
-      src="{{src}}"
-    />
+  <view class='page__bd'>
+    这里是一片文章介绍，这里是一片文章介绍，
+这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，
+这里是一片文章介绍，  </view>
+ <view class="page__ft">
+    <image src="/image/icon_footer.png" style="width: 84px; height: 19px;"></image>
   </view>
 </view>

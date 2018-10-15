@@ -1,9 +1,4 @@
-.box {
-  background:#eee;
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-}
+
 .video-item {
    margin-bottom: 10px;
    background-color: #fff;

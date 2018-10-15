@@ -4,18 +4,18 @@
     "pages/posts/index",
     "pages/post/index",
     "pages/videos/index",
-    "pages/video/index",
-    "pages/about/index",
-    "pages/wallpaper/index"
+    "pages/wallpaper/index",
+    "pages/about/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "navigationStyle":"custom",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "吾 藏 札 记",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle":"dark"
   },
   "tabBar": {
-    "position": "top",
+    "position": "bottom",
     "backgroundColor": "#fff",
     "selectedColor": "#0076f9",
     "color": "#606e82",

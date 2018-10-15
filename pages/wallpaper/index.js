@@ -7,34 +7,14 @@ Page({
   },
 
   items: [],
-
   setState,
-
   page: 1,
-
   totalPage: 0,
-
   loading: false,
-
+  
   getRow(data) {
-    const items = data.filter(({ post }) => post)
-    const left = []
-    const right = []
-    let leftHeight = 0
-    let rightHeight = 0
-
-    items.forEach((item) => {
-      const { height } = item.media_details.sizes.thumbnail
-      if (leftHeight > rightHeight) {
-        right.push(item)
-        rightHeight += height
-      } else {
-        left.push(item)
-        leftHeight += height
-      }
-    })
-
-    return [left, right]
+   // const items = data.filter(({ post }) => post) //待研究
+    return data;
   },
 
   onScrollBottom() {

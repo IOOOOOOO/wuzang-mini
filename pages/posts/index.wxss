@@ -1,7 +1,3 @@
-scroll-view {
-  height: 100vh;
-  background: #eee;
-}
 .post {
   background: #fff;
   margin-bottom: 10px;
@@ -19,7 +15,7 @@ scroll-view {
   top: 0;
   background: rgba(0, 0, 0, .2);
 }
-image {
+.cover image {
   display: block;
   width: 100%;
 }

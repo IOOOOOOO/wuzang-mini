@@ -1,3 +1,5 @@
+<navigationBar opt="{{navbar}}" id="navigationBar" ></navigationBar>
+
 <view wx:if="{{post.id}}" class="post">
   <view style="width:{{current/total*100}}%" class="rate"></view>
   <scroll-view

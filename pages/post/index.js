@@ -35,7 +35,6 @@ Page({
     total: 1,
     innerHTML: '',
     status: 'pause',
-    audioReady: false,
   },
 
   setState,
@@ -79,9 +78,11 @@ Page({
   },
 
   onUnload() {
-    this.audio.stop()
-    this.audio.destroy()
-    this.audio = null
+    if (this.audio){
+      this.audio.stop();
+      this.audio.destroy();
+      this.audio = null;
+    }
   },
 
   onLoad({ id }) {

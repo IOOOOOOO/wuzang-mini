@@ -1,22 +1,26 @@
 import { store, setState } from '../../helper/wx'
 import request from '../../helper/request'
+//获取应用实例
+const app = getApp()
 
 Page({
   data: {
     posts: [],
+
+    navbar:{
+      title: '吾 藏 札 记',
+      back:false,
+    }
   },
 
   setState,
-
   page: 1,
-
   loading: false,
-
   totalPage: 0,
 
+  //下一页
   onScrollBottom() {
     const { posts: current } = this.data
-
     if (this.loading || this.totalPage === this.page) {
       return
     }

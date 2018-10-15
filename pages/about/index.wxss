@@ -1,25 +1,20 @@
-.about {
-  padding: 30px 30px 70px;
+page{
+  background-color: #fff;
 }
-.heading {
-  margin-top: 20px;
-  color: #333;
-  font-size: 18px;
+.logo{
+  width: 100px;
+  height: 100px;
 }
-.content {
-  color: #666;
-  font-size: 14px;
-  margin-top: 10px;
-  line-height: 1.5;
+.page__hd {
+  padding-bottom: 0px;
+    text-align: center;
 }
-.br {
-  margin-top: 5px;
+.page__bd{
+  padding: 50rpx;
+  font-size: 30rpx;
+  color:#999;
 }
-.gift {
-  width: 80%;
-  margin: 30px auto 0;
-}
-image {
-  width: 100%;
-  display: block;
+.title{
+  padding:20rpx 0;
+  font-size:40rpx;
 }

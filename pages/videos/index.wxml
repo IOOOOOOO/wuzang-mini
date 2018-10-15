@@ -1,5 +1,6 @@
-<view class='box'>
-  <view class='video-item' wx:for="{{videoList}}" wx:key="index">
+<view class='page'>
+  <view class='page__bd'>
+    <view class='video-item' wx:for="{{videoList}}" wx:key="index">
 		<view class='cover'>
 			<video class='video-video' wx:if='{{index==videoIndex}}' id='video{{index}}' autoplay='{{true}}' show-center-play-btn="{{false}}" src='{{item.resource_add}}'></video>
 			<image class='video-cover' wx:if='{{index!=videoIndex}}' mode='aspectFill' src='{{item.coverimg}}'></image>
@@ -8,4 +9,9 @@
     <view class='title'>{{item.title}}</view>
     <view class='excerpt'>{{item.description}}</view>
     </view>
+  </view>
+  <view class="page__ft">
+    <image src="/image/icon_footer.png" style="width: 84px; height: 19px;"></image>
+  </view>
 </view>
+
