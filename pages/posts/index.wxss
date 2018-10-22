@@ -1,3 +1,10 @@
+.page__bd{
+  background-color: #F8F8F8;
+}
+.page__hd .des{
+  font-size:35rpx;
+  color: #BBB;
+}
 .post {
   background: #fff;
   margin-bottom: 10px;
@@ -19,7 +26,7 @@
   display: block;
   width: 100%;
 }
-.title {
+.post .title {
   position: absolute;
   color: rgba(255, 255, 255, .9);
   font-size: 18px;

@@ -1,13 +1,8 @@
-.page__bd{ 
-  padding: 15rpx;
-  }
-
-.item{
-  margin: 15rpx;
-  width: 330rpx;
-  height: auto;
-  float: left;
+.image-box{
+   /* width:100%; */
+  column-count:2;/*column-count 属性规定元素应该被分隔的列数：*/
+  column-gap: 20rpx;/* 列间隙 */
+  margin: 20rpx;
 }
-.item image{
-  width: 330rpx;
-}
+.item{  display: inline-block;  width:100%; margin:5rpx 0;}
+.item image{  width:100%;  margin:0 auto;}

@@ -3,50 +3,63 @@ import { setState, store } from '../../helper/wx'
 
 Page({
   data: {
+
+    /*分页列表*/
     items: [],
+    pageIndex: 1,
+    pageSize: 20,
+    totalPage: 0,
+    loading: false,//是否正在加载
+    loadedAll: false,//是否加载完全部
+     /*分页列表*/
   },
-
-  items: [],
   setState,
-  page: 1,
-  totalPage: 0,
-  loading: false,
-  
-  getRow(data) {
-   // const items = data.filter(({ post }) => post) //待研究
-    return data;
-  },
-
-  onScrollBottom() {
-    if (this.loading || this.totalPage === this.page) {
-      return
-    }
-
-    this.loading = true
-    this.page += 1
-
-    request({ url: '/media', data: {
-      media_type: 'image',
-      page: this.page,
-      per_page: 20,
-    }})
-      .then(({ data }) => {
-        this.items = this.items.concat(data)
-        return Promise.resolve(this.items)
-      })
-      .then((items) => this.setState({ items: this.getRow(items) }))
-      .then(() => this.loading = false)
-  },
-
   onLoad() {
-    request({ url: '/media', data: { media_type: 'image', per_page: 20 } })
-      .then(({ data: items, header }) => {
-        this.totalPage = Number(header['X-WP-TotalPages'])
-        this.items = items
-        this.setState({ items: this.getRow(items) })
+    this.loadData();
+  },
+  /*01.加载数据*/
+  loadData: function (e) {
+    var that = this;
+    if (that.data.loadedAll || that.data.loading) return;
+    that.setData({ loading: true });
+    request({ url: '/media', data: { media_type: 'image',page: that.data.pageIndex, per_page: that.data.pageSize } })
+      .then(({ data, header }) => {
+        that.data.totalPage = Number(header['X-WP-TotalPages']);
+        that.setData({
+          totalPage: that.data.totalPage,
+          loadedAll: (that.data.pageIndex >= that.data.totalPage)
+        });
+        return Promise.resolve(data);
       })
+      .then((data) => {
+        // this.items = this.items.concat(data) 后期解决
+        that.setData({ items: data });
+      })
+      .then(() => that.setData({ loading: false }));
+  },
+  /*02.刷新*/
+  reLoadData: function (e) {
+    var that = this;
+    if (that.data.loading) return;
+    that.setData({
+      items: [],
+      pageIndex: 1,
+      totalPage: 0,
+      loadedAll: false,
+    });
+    that.loadData();
+  },
+  /*03.记载更多*/
+  loadMoreData: function (e) {
+    var that = this;
+    if (that.data.loadedAll || that.data.loading) return;
+    that.setData({ pageIndex: ++that.data.pageIndex });
+    that.loadData();
   },
 
+
+
+  /*点击放大图片*/
   onTap({ target }) {
     const { src } = target.dataset
     wx.previewImage({

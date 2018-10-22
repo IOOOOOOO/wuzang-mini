@@ -8,7 +8,14 @@
   <view class='page__bd'>
     这里是一片文章介绍，这里是一片文章介绍，
 这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，
-这里是一片文章介绍，  </view>
+这里是一片文章介绍，  
+  <view class='info'>
+    <view>成立时间:<text>|</text>2006-10-11</view>
+    <view>成立时间:<text>|</text>2006-10-11</view>
+    <view>成立时间:<text>|</text>2006-10-11</view>
+  </view>
+   
+ </view>
  <view class="page__ft">
     <image src="/image/icon_footer.png" style="width: 84px; height: 19px;"></image>
   </view>

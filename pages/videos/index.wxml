@@ -1,17 +1,27 @@
+<wxs src="./../../helper/str.wxs" module="helper" />
+<navigationBar opt="{{navbar}}"></navigationBar>
 <view class='page'>
   <view class='page__bd'>
-    <view class='video-item' wx:for="{{videoList}}" wx:key="index">
-		<view class='cover'>
-			<video class='video-video' wx:if='{{index==videoIndex}}' id='video{{index}}' autoplay='{{true}}' show-center-play-btn="{{false}}" src='{{item.resource_add}}'></video>
-			<image class='video-cover' wx:if='{{index!=videoIndex}}' mode='aspectFill' src='{{item.coverimg}}'></image>
-			<image class='videoPlayBtn' wx:if='{{index!=videoIndex}}' data-index='{{index}}' bindtap='videoPlay' src='/image/v-play.png'></image>
-	  </view>
-    <view class='title'>{{item.title}}</view>
-    <view class='excerpt'>{{item.description}}</view>
+    <view class='video-item' wx:for="{{items}}" wx:key="index">
+      <view class='cover'>
+        <video class='video-video' objectFit="contain" wx:if='{{index==videoIndex}}' id='video{{index}}' autoplay='{{true}}' show-center-play-btn="{{false}}" src='{{item.source_url}}'></video>
+        <image class='video-cover' wx:if='{{index!=videoIndex}}' mode='aspectFill' src='{{item.thumbnail}}'></image>
+        <image class='videoPlayBtn' wx:if='{{index!=videoIndex}}' data-index='{{index}}' bindtap='videoPlay' src='/image/v-play.png'></image>
+      </view>
+      <view class='title'>{{item.title.rendered}}</view>
+      <view class='excerpt'>{{helper.unescape(item.caption.rendered)}}</view>
     </view>
+
+    <view class="weui-loadmore" wx:if='{{loading}}'>
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if='{{loadedAll}}'>
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">已加载全部</view>
+    </view>
+
   </view>
   <view class="page__ft">
     <image src="/image/icon_footer.png" style="width: 84px; height: 19px;"></image>
   </view>
 </view>
-

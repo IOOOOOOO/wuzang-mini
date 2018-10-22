@@ -1,43 +1,58 @@
-import { store, setState } from '../../helper/wx'
 import request from '../../helper/request'
-//获取应用实例
-const app = getApp()
 
 Page({
   data: {
-    posts: [],
-
-    navbar:{
-      title: '吾 藏 札 记',
-      back:false,
-    }
+    /*分页列表*/
+    items: [],
+    pageIndex: 1,
+    pageSize:10,
+    totalPage: 0,
+    loading: false,//是否正在加载
+    loadedAll: false,//是否加载完全部
+     /*分页列表*/
   },
-
-  setState,
-  page: 1,
-  loading: false,
-  totalPage: 0,
-
-  //下一页
-  onScrollBottom() {
-    const { posts: current } = this.data
-    if (this.loading || this.totalPage === this.page) {
-      return
-    }
-
-    this.loading = true
-    this.page += 1
-
-    request({ url: '/posts', data: { page: this.page } })
-      .then(({ data }) => this.setState({ posts: current.concat(data) }))
-      .then(() => this.loading = false)
-  },
-
   onLoad() {
-    request({ url: '/posts' })
-      .then(({ data: posts, header }) => {
-        this.totalPage = Number(header['X-WP-TotalPages'])
-        this.setState({ posts })
-      })
+    this.loadData();
   },
+  /*01.加载数据*/
+  loadData: function (e) {
+    var that = this;
+    if (that.data.loadedAll||that.data.loading) return;
+    that.setData({loading:true});
+    request({ url: '/posts', data: { page: that.data.pageIndex, per_page: that.data.pageSize} })
+      .then(({ data, header }) => {
+        that.data.totalPage = Number(header['X-WP-TotalPages']);
+        that.setData({
+          totalPage: that.data.totalPage,
+          loadedAll: (that.data.pageIndex >= that.data.totalPage)
+        });
+        return Promise.resolve(data);
+      })
+      .then((data)=>{
+        // this.items = this.items.concat(data) 后期解决
+        that.setData({ items: data });
+      })
+      .then(() => that.setData({loading: false}));
+  },
+  /*02.刷新*/
+  reLoadData:function(e){
+    var that=this;
+    if (that.data.loading) return;
+    that.setData({ 
+      items:[],
+      pageIndex: 1,
+      totalPage: 0,
+      loadedAll: false,
+     });
+    that.loadData();
+  },
+  /*03.记载更多*/
+  loadMoreData:function(e){
+    var that=this;
+    if (that.data.loadedAll || that.data.loading) return;
+    that.setData({ pageIndex: ++that.data.pageIndex });
+    that.loadData();
+  }
+
+
 })

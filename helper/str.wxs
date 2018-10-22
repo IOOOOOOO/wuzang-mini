@@ -1,0 +1,16 @@
+var unescape = function (text) {
+  return text
+    .split('<p>')
+    .join('')
+    .split('</p>')
+    .join('')
+    .split('<br />')
+    .join('')
+    .split('&nbsp;')
+    .join('')
+    .split('[&hellip;]')
+    .join('')
+}
+module.exports.unescape = unescape
+
+
