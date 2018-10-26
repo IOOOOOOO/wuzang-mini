@@ -14,7 +14,10 @@ page{
   font-size: 30rpx;
   color:#999;
 }
-
+.oname{
+  width: 40%;
+  text-align: center;
+}
 .info{
    margin: 20rpx 0;
 }

@@ -1,6 +1,6 @@
 import { store, setState, Audio } from '../../helper/wx'
 import request from '../../helper/request'
-import { html2json } from '../../helper/html2wxml/html2json'
+import { html2json } from '../../helper/html2wxml/html2json.js'
 
 const clearText = (text) => {
   const audio = /<audio[^>].*>[\s\S]+<\/audio>/g
@@ -102,6 +102,7 @@ Page({
         post.content = { ...word(rendered), ...post.content }
         post.date = post.date.split('T')[0]
         post.innerHTML = html2json(post.content.rendered).child
+
 
         return this.setState({ post, innerHTML: post.innerHTML })
       })

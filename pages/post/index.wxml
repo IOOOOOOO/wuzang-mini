@@ -24,6 +24,6 @@
 
   </view>
   <view class="page__ft">
-    <image src="/image/icon_footer.png" style="width: 84px; height: 19px;"></image>
+    <image src="/image/icon_footer.png" style="width: 84px; height: 35px;"></image>
   </view>
 </view>

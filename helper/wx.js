@@ -9,34 +9,10 @@ export const store = {
     return app().data[key]
   },
 }
-
-export const toast = (title) => {
-  wx.showToast({
-    title,
-    icon: 'none',
-    duration: 1000,
-    mask: true,
-  })
-}
-
-export const loading = function(show = true) {
-  if (show) {
-    if (this > 1) {
-      wx.showNavigationBarLoading()
-    } else {
-      wx.showLoading({ mask: true })
-    }
-    return
-  }
-  wx.hideLoading()
-  wx.hideNavigationBarLoading()
-}
-
-export const setState = function(data) {
+export const setState = function (data) {
   this.setData(data)
   return Promise.resolve(data)
 }
-
 export class Audio {
   constructor(src) {
     this.playCall = () => null

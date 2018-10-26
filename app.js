@@ -1,1 +1,1 @@
-App({ data: { post: {} }  })
+App({   data: { post: {} }, })

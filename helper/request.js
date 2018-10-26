@@ -1,4 +1,3 @@
-import { loading, toast } from './wx'
 import host from '../host'
 
 export default function (params) {
@@ -8,8 +7,6 @@ export default function (params) {
     method = 'GET',
   } = params
 
-  loading.call(data.page)
-
   Object.keys(data).forEach((key) => {
     if (data[key] === null || data[key] === undefined) {
       delete data[key]
@@ -17,17 +14,30 @@ export default function (params) {
   })
 
   return new Promise((resolve) => {
+    //显示动画效果
+    wx.showNavigationBarLoading();
+    wx.showLoading({ mask: true });
+
     wx.request({
       url: `${host}/wp-json/wp/v2${url}`,
       data,
       method,
       success(data) {
-        loading(false)
+        //清楚加载动画效果
+        wx.hideLoading();
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
 
         if (data.data) {
           return resolve(data)
         }
-        return toast('请求数据错误')
+        return 
+        wx.showToast({
+          title:"请求数据错误",
+          icon: 'none',
+          duration: 1000,
+          mask: true,
+        });
       }
     })
   })

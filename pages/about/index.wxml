@@ -3,20 +3,19 @@
 <view class='page'>
   <view class='page__hd'>
     <image src='/image/logo.jpg' mode="" class='logo'></image>
-    <view class='title'>吾藏 WUZANG</view>
+   
   </view>
   <view class='page__bd'>
-    这里是一片文章介绍，这里是一片文章介绍，
-这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，这里是一片文章介绍，
-这里是一片文章介绍，  
+  一直想把自己喜欢的音乐和音乐背后的故事以一种的好的方式分享出来。这次感谢GitHub上Softtyms 的项目。我在原来的基础上增加了部分功能，整体重构了。灵感也是源于Softtyms
+              
+              <view style='text-align: right;'>———— 金泽夕</view>
   <view class='info'>
-    <view>成立时间:<text>|</text>2006-10-11</view>
-    <view>成立时间:<text>|</text>2006-10-11</view>
-    <view>成立时间:<text>|</text>2006-10-11</view>
+    <view>E-Mail:<text>|</text>SanMDS@qq.com</view>
+    <view>Twitter:<text>|</text>@SanMDS</view>
+    <view>Version:<text>|</text>1.5.6</view>
   </view>
-   
  </view>
  <view class="page__ft">
-    <image src="/image/icon_footer.png" style="width: 84px; height: 19px;"></image>
+    <image src="/image/icon_footer.png" style="width: 84px; height: 35px;"></image>
   </view>
 </view>

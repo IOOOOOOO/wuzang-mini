@@ -1,5 +1,4 @@
 import request from '../../helper/request'
-import { setState, store } from '../../helper/wx'
 
 Page({
   data:function(){
@@ -17,8 +16,12 @@ Page({
     videoIndex: null,//当前播放视频
   },
   /**/
-  setState,
-  
+  onPullDownRefresh() {
+    this.reLoadData();
+  },
+  onReachBottom() {
+    this.loadMoreData();
+  },
   onLoad: function (options) {
     this.loadData();
   },
@@ -37,8 +40,7 @@ Page({
         return Promise.resolve(data);
       })
       .then((data) => {
-        // this.items = this.items.concat(data) 后期解决
-        that.setData({ items: data });
+        that.setData({ items: that.data.items.concat(data) });
       })
       .then(() => that.setData({ loading: false }));
   },
