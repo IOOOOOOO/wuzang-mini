@@ -1,4 +1,4 @@
-# Softtyms
+# MDS-MINI
 
 一个基于 WordPress [REST API](https://developer.wordpress.org/rest-api/) 的微信小程序
 
