@@ -1,5 +1,5 @@
-@import "../../helper/html2wxml/html2wxml.wxss";
 
+@import "../../helper/wxParse/wxParse.wxss";
 .title {
   color: #333;
   font-size: 24px;

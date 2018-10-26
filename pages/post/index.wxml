@@ -11,10 +11,12 @@
         <view>大概 {{post.content.time}} 分钟</view>
       </view>
       <image mode="widthFix" class="cover" src="https://wuzang.iego.net/wp-content/themes/Diaspora-master/timthumb/timthumb.php?src={{post.thumbnail}}" />
-      <view class="content">
-        <import src="../../helper/html2wxml/html2wxml.wxml" />
-        <template is="html2Wxml" data="{{innerHTML}}"></template>
+
+      <import src="../../helper/wxParse/wxParse.wxml" />
+      <view class="content wxParse">
+        <template is="wxParse" data="{{wxParseData:innerHTML.nodes}}" />
       </view>
+
 
       <view wx:if="{{post.audio}}" class="button {{audioReady ? 'ready' : ''}}" bindtap="onTap">
         <image wx:if="{{status === 'play'}}" src="../../image/pause.png" />
